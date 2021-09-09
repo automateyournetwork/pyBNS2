@@ -1,0 +1,63 @@
+service-template DATA_VLAN
+ vlan {{ vlan }}
+!
+service-template VOICE_VLAN
+ voice vlan
+!
+service-template AUTH_FAIL_VLAN
+ vlan 1
+!
+class-map type control subscriber match-any AAA-DOWN
+match result-type aaa-timeout
+!
+class-map type control subscriber match-all MAB_FAILED
+ match method mab
+ match result-type method mab authoritative
+!
+policy-map type control subscriber DOT1X_ENFORCEMENT_POLICY
+ event session-started match-all
+  10 class always do-all
+   10 authenticate using dot1x priority 10
+   20 authenticate using mab priority 20
+ event aaa-available match-all
+  10 class always do-all
+   10 activate service-template AUTH_FAIL_VLAN
+   20 resume reauthentication
+   30 authenticate using dot1x priority 10
+   40 authenticate using mab priority 20
+ event authentication-failure match-first
+  10 class AAA-DOWN do-all
+   10 pause reauthentication
+   20 activate service-template DATA_VLAN
+   30 terminate dot1x
+   40 terminate mab
+  20 class DOT1X_FAILED do-all
+   10 terminate dot1x
+  30 class MAB_FAILED do-all
+   10 terminate mab
+!
+policy-map type control subscriber DOT1X_MONITOR_POLICY
+ event session-started match-all
+  10 class always do-all
+   5 activate service-template VOICE_VLAN
+   10 activate service-template DATA_VLAN
+   20 authenticate using dot1x priority 10
+   30 authenticate using mab priority 20
+ event aaa-available match-all
+  10 class always do-all
+   10 resume reauthentication
+   20 activate service-template DATA_VLAN
+   30 activate service-template DATA_VLAN
+   40 authenticate using dot1x priority 10
+   50 authenticate using mab priority 20
+ event authentication-failure match-first
+  10 class AAA-DOWN do-all
+   10 pause reauthentication
+   20 activate service-template DATA_VLAN
+   30 activate service-template DATA_VLAN
+   40 terminate dot1x
+   50 terminate mab
+  20 class DOT1X_FAILED do-all
+   10 terminate dot1x
+  30 class MAB_FAILED do-all
+   10 terminate mab

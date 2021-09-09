@@ -1,0 +1,18 @@
+{% for interface in interface %}
+interface {{ interface }}
+no authentication event fail action authorize vlan 1
+no authentication event server dead action authorize vlan
+no authentication event server dead action authorize voice
+no authentication event server alive action reinitialize
+no authentication host-mode multi-domain
+no authentication host-mode multi-auth
+no authentication open
+no authentication order dot1x mab
+no authentication priority dot1x mab
+no authentication port-control auto
+no authentication periodic
+no mab
+no dot1x pae authenticator
+no dot1x timeout quiet-period 2
+no dot1x timeout tx-period 10
+{% endfor %}

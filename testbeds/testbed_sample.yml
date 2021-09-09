@@ -1,0 +1,19 @@
+ devices:
+    NAME:
+      alias: 'alias'
+      type: 'switch'
+      os: 'iosxe'
+      platform: c9300
+      custom:
+        abstraction:
+          order: [os, platform]      
+      credentials:
+        default:
+          username: admin
+          password: "password"
+      connections:        
+        cli:
+          protocol: ssh
+          ip: "ip"
+          arguments:
+            connection_timeout: 360 

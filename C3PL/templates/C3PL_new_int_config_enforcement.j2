@@ -1,0 +1,13 @@
+{% for interface in interface %}
+interface {{ interface }}
+switchport access vlan 1
+authentication periodic
+access-session closed
+access-session host-mode multi-domain
+access-session port-control auto
+mab
+dot1x pae authenticator
+dot1x timeout quiet-period 2
+dot1x timeout tx-period 10
+service-policy type control subscriber DOT1X_ENFORCEMENT_POLICY
+{% endfor %}

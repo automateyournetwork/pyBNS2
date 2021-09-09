@@ -1,0 +1,16 @@
+{% for interface in interface %}
+no service-template AUTH_FAIL_VLAN_{{ interface | replace("TwoGigabitEthernet","Tw") | replace("TenGigabitEthernet","Te") | replace("GigabitEthernet","Gi") }}
+no service-template CRITICAL_AUTH_VLAN_{{ interface | replace("TwoGigabitEthernet","Tw") | replace("TenGigabitEthernet","Te") | replace("GigabitEthernet","Gi") }}
+no policy-map type control subscriber POLICY_{{ interface | replace("TwoGigabitEthernet","Tw") | replace("TenGigabitEthernet","Te") | replace("GigabitEthernet","Gi") }}
+{% endfor %}
+no service-template webauth-global-inactive
+no service-template DEFAULT_LINKSEC_POLICY_MUST_SECURE
+no service-template DEFAULT_LINKSEC_POLICY_SHOULD_SECURE
+no service-template DEFAULT_CRITICAL_VOICE_TEMPLATE
+no service-template DEFAULT_CRITICAL_DATA_TEMPLATE
+no class-map type control subscriber match-all AAA_SVR_DOWN_AUTHD_HOST
+no class-map type control subscriber match-all AAA_SVR_DOWN_UNAUTHD_HOST
+no class-map type control subscriber match-all DOT1X
+no class-map type control subscriber match-all DOT1X_MEDIUM_PRIO
+no class-map type control subscriber match-all DOT1X_NO_RESP
+no class-map type control subscriber match-all DOT1X_TIMEOUT

@@ -1,0 +1,11 @@
+{% for interface in interface %}
+interface {{ interface }}
+authentication periodic
+access-session host-mode multi-domain
+access-session port-control auto
+mab
+dot1x pae authenticator
+dot1x timeout quiet-period 2
+dot1x timeout tx-period 10
+service-policy type control subscriber DOT1X_MONITOR_POLICY
+{% endfor %}
