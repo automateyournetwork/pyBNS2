@@ -1,0 +1,21 @@
+{
+    "interfaces": {
+        "TenGigabitEthernet1/0/46": {
+            "client": {
+                "aaaa.cccc.9999": {
+                    "client": "aaaa.cccc.9999",
+                    "domain": "UNKNOWN",
+                    "method": "dot1x",
+                    "session": {
+                        "069218AC0022222974189F58": {
+                            "session_id": "069218AC0022222974189F58"
+                        }
+                    },
+                    "status": "Auth"
+                }
+            },
+            "interface": "TenGigabitEthernet1/0/46"
+        }
+    },
+    "session_count": 1
+}

@@ -1,0 +1,44 @@
+{
+    "interfaces": {
+        "TenGigabitEthernet1/0/46": {
+            "clients": {
+                "0000.8888.ffff": {
+                    "client": "0000.8888.ffff",
+                    "eap_method": "(0)",
+                    "session": {
+                        "039218AC1110004755AD83B0": {
+                            "auth_bend_sm_state": "request",
+                            "auth_sm_state": "authenticating",
+                            "session_id": "039218AC1110004755AD83B0"
+                        }
+                    }
+                }
+            },
+            "interface": "TenGigabitEthernet1/0/46",
+            "max_reauth_req": 2,
+            "max_req": 2,
+            "pae": "authenticator",
+            "timeout": {
+                "quiet_period": 1,
+                "server_timeout": 0,
+                "supp_timeout": 30,
+                "tx_period": 5
+            }
+        },
+        "TenGigabitEthernet1/0/47": {
+            "interface": "TenGigabitEthernet1/0/47",
+            "max_reauth_req": 1,
+            "max_req": 1,
+            "pae": "authenticator",
+            "timeout": {
+                "quiet_period": 1,
+                "server_timeout": 0,
+                "supp_timeout": 30,
+                "tx_period": 5
+            }
+        }
+
+    },
+    "system_auth_control": true,
+    "version": 3
+}
