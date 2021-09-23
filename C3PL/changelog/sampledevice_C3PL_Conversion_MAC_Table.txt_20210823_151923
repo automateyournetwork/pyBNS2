@@ -1,0 +1,17 @@
++mac_table:
++ vlans:
++  123:
++   mac_addresses:
++    0000.eeee.ffff:
++     interfaces:
++      Port-channel1:
++       entry_type: dynamic
++       interface: Port-channel1
++     mac_address: 0000.eeee.ffff
++    bbbb.6666.dddd:
++     interfaces:
++      Port-channel2:
++       entry_type: dynamic
++       interface: Port-channel2
++     mac_address: bbbb.6666.dddd
++total_mac_addresses: 2

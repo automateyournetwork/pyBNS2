@@ -49,7 +49,7 @@ This folder contains the JSON output of the show commands listed above, taken af
 * changelog
 This folder contains the differential outputs of the files in pre_configs and post_configs
 
-## Suggested Customisation
+## Suggested Customization
 * Your testbed file
 * Your current "legacy-mode" interface commands to remove, in /templates/legacy_dot1x_removal.j2
 * New C3PL interface timers and commands to be added, in /templates/C3PL_new_int_config_enforcement.j2 and /templates/C3PL_new_int_config_monitor.j2
