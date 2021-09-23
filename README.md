@@ -42,12 +42,13 @@ This folder contains the JSON output of the following show commands, taken befor
     * show authentication sessions
     * show interface status
     *show dot1x all details
+The sample files provided in this folder gives an example of how the data captured is presented in json.
 
 * post_configs
-This folder contains the JSON output of the show commands listed above, taken after the device is converted
+This folder contains the JSON output of the show commands listed above, taken after the device is converted. The sample file provided in this folder gives an example of how the data captured is presented in json.
 
 * changelog
-This folder contains the differential outputs of the files in pre_configs and post_configs
+This folder contains the differential outputs of the files in pre_configs and post_configs.
 
 ## Suggested Customization
 * Your testbed file
